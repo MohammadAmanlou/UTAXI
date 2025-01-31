@@ -42,6 +42,7 @@ void Interface::server_images(MyServer &server)
 
 void Interface::server_handlers(MyServer &server)
 {
+    server.get("/save", new SaveDataHandler(utaxi));
     server.get("/signuppage", new SignupPageHandler());
     server.post("/signup", new SignupHandler(utaxi));
 

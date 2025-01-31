@@ -16,6 +16,7 @@ class Utaxi
     public:
         Utaxi();
         void gather_loc_data(std::string file_address);
+        void save_data();
 
         void signup(SignupCredentials new_signup);
         void post_trips(TripRequestTokens new_trip_tokens);

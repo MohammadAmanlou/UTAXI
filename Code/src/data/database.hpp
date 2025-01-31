@@ -12,17 +12,21 @@
 #include "../user/passenger.hpp"
 #include "trip.hpp"
 #include "../utils/general.hpp"
+#include "database_items.hpp"
 #include "../defines.hpp"
+#include "sqlite_orm.h"
 
 
 class Database
 {
     public:
-        Database() {};
+        Database() {}
+        void save_data();
+        void read_data();
         void add_member(SignupCredentials new_mem);
         void add_location(Location* new_loc);
         void add_trip(TripRequestTokens new_trip);
-        
+
         double calc_trip_cost(TripRequestTokens new_trip_tokens);
         std::vector<Trip*> get_trips(std::string sorted);
 
@@ -48,6 +52,7 @@ class Database
         Member* find_passenger_by_trip(int _id);
         Member* find_driver_by_trip(int _id);
         Member* find_member_by_username(std::string _username);
+        Location* find_location_by_name(std::string name);
         Trip* find_trip_by_id(int _id);
 
         std::vector<Trip*> get_id_sorted_trips() { return trips; }

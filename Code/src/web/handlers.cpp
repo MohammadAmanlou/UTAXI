@@ -224,3 +224,12 @@ Response *Interface::AcceptTripHandler::callback(Request *req)
 
     return res;
 }
+
+Interface::SaveDataHandler::SaveDataHandler(Utaxi *utaxi_) { utaxi = utaxi_; }
+Response *Interface::SaveDataHandler::callback(Request *req)
+{
+    Response *res = new Response;
+    utaxi->save_data();
+    res = Response::redirect("/");
+    return res;
+}

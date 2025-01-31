@@ -16,6 +16,9 @@ class Location
         int traffic_to(Location* loc2);
 
         std::string get_name() { return name; }
+        double get_latitude() const { return latitude; }
+        double get_longitude() const { return longitude; }
+        int get_traffic() const { return traffic; }
     private:
         std::string name;
         double latitude;
