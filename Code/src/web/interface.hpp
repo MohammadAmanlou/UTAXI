@@ -4,7 +4,7 @@
 #include "myserver.hpp"
 #include "utaxi.hpp"
 
-class Interface 
+class Interface
 {
     public:
         void run(char *argv[]);
@@ -71,7 +71,7 @@ class Interface
             private:
                 Utaxi *utaxi;
         };
-        
+
         class FinishTripPageHandler : public RequestHandler
         {
             public:
@@ -124,6 +124,15 @@ class Interface
         {
             public:
                 AcceptTripHandler(Utaxi *utaxi_);
+                Response *callback(Request *req);
+            private:
+                Utaxi *utaxi;
+        };
+
+        class SaveDataHandler : public RequestHandler
+        {
+            public:
+                SaveDataHandler(Utaxi *utaxi_);
                 Response *callback(Request *req);
             private:
                 Utaxi *utaxi;

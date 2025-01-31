@@ -3,6 +3,7 @@
 Utaxi::Utaxi()
 {
     trips_counter = 0;
+    database.read_data();
 }
 
 void Utaxi::gather_loc_data(std::string file_address)
@@ -17,6 +18,10 @@ void Utaxi::gather_loc_data(std::string file_address)
         database.add_location(new_loc);
     }
 }
+void Utaxi::save_data() {
+    database.save_data();
+}
+
 void Utaxi::signup(SignupCredentials new_signup)
 {
     check_signup_role(new_signup.role);

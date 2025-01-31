@@ -23,6 +23,8 @@ class Trip
         friend bool cmp_trips(Trip* t1, Trip* t2);
 
         void set_driver(Member* _driver) { driver = _driver; }
+        void set_status(std::string _status) { status = _status; }
+        void set_price(double _price) { price = _price; }
         Member* get_passenger() { return passenger; }
         Member* get_driver() { return driver; }
         Location* get_origin() { return origin; }
